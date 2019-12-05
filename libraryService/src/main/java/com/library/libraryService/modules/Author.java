@@ -1,9 +1,16 @@
 package com.library.libraryService.modules;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description = "Details about a book author")
 public class Author {
 	
+	@ApiModelProperty(notes = "The primary key, unique id")
 	private int authorId;
+	@ApiModelProperty(notes = "The last name of the author")
 	private String authorLastName;
+	@ApiModelProperty(notes = "The first name of the author")
 	private String authorFirstName;
 
 	public int getAuthorId() {

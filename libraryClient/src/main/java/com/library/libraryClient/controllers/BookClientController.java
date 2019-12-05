@@ -51,13 +51,13 @@ public class BookClientController {
 	}
 	
 	@GetMapping("/author/{authorId}")
-	public Collection<Book> getBookByAuthorId(@PathVariable int authorId)
+	public List<Book> getBookByAuthorId(@PathVariable int authorId)
 	{
 		return bc.getBookByAuthorId(authorId);
 	}
 	
 	@GetMapping("/category/{bookCategory}")
-	public Collection<Book> getBookByCategory(@PathVariable String category)
+	public List<Book> getBookByCategory(@PathVariable String category)
 	{
 		return bc.getBookByCategory(category);
 	}

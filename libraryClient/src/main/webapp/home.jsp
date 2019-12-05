@@ -11,7 +11,7 @@
 <form action="/users/login" method="get">
 Username: <input type="text" name="username"><br>
 Password: <input type="password" name="password"><br>
-<input type="submit" value = "Login"> OR <a href="createUser.jsp"><button type="button"> Create account </button></a> <br>
+<input type="submit" value = "Login"> OR <a href="/createUser.jsp"><button type="button"> Create account </button></a> <br>
 </form>
 
 </body>

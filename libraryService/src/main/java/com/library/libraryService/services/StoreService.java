@@ -24,6 +24,7 @@ public class StoreService {
 		order.setoQuantity(5);
 		order.setoShipDate("30/11/2019");
 		order.setoStatus(OrderStatus.Delivered);
+		order.setoUserId(1);
 		orders.put(key, order);
 		key++;
 		
@@ -33,6 +34,7 @@ public class StoreService {
 		order.setoQuantity(2);
 		order.setoShipDate("27/11/2019");
 		order.setoStatus(OrderStatus.Delivered);
+		order.setoUserId(2);
 		orders.put(key, order);
 		key++;
 	}
@@ -82,5 +84,23 @@ public class StoreService {
 		orders.put(orderId, updatedOrder);
 		
 		return "Updated successfully!";
+	}
+	
+	public List<OrderClass> findByUserId(int userId)
+	{
+		List<OrderClass> returningOrders = new ArrayList<>();
+		Collection<OrderClass> orderValue = orders.values();
+		
+		for (OrderClass order : orderValue) {
+			if(order.getoUserId() == userId){
+				returningOrders.add(orders.get(order.getoId()));
+			}
+		}
+		
+		if(returningOrders.isEmpty()){
+			return null;
+		}
+		
+		return returningOrders;
 	}
 }

@@ -69,9 +69,17 @@ public class StoreController {
 	}
 	
 	@PutMapping("/order/{orderId}/update")
-	private String updateOrderStatus(@PathVariable int orderId,@RequestBody OrderClass updatedOrder)
+	@ApiOperation(value = "Update orders", response = OrderClass.class)
+	private String updateOrder(@ApiParam(value = "The ID of the order that will be updated") @PathVariable int orderId,@ApiParam("The updated order")@RequestBody OrderClass updatedOrder)
 	{
 		return storeService.updateOrder(orderId, updatedOrder);
+	}
+	
+	@GetMapping("/usersOrders/{userId}")
+	@ApiOperation(value = "Find orders by the users that placed the order")
+	private List<OrderClass> getOrderByUserId(@ApiParam(value = "The ID of the user that placed the orders") @PathVariable int userId)
+	{
+		return storeService.findByUserId(userId);
 	}
 	
 }

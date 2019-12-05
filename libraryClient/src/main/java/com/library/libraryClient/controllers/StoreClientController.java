@@ -27,11 +27,12 @@ public class StoreClientController {
 	private StoreClient sc;
 	public static final String CONTRACT_BASE_URL = "/store";
 	
-	@PostMapping("/order/bookId={bookId}")
-	public ModelAndView addOrder(OrderClass newOrder, @PathVariable(value = "bookId") int bookId)
+	@PostMapping("/order/bookId={bookId}&userId={userId}")
+	public ModelAndView addOrder(OrderClass newOrder, @PathVariable(value = "bookId") int bookId, @PathVariable(value = "userId") int userId)
 	{
 		ModelAndView model = new ModelAndView("orderPlaced");
 		newOrder.setoBookId(bookId);
+		newOrder.setoUserId(userId);
 		OrderClass order = sc.addOrder(newOrder);
 		model.addObject(order);
 		return model;
@@ -67,7 +68,7 @@ public class StoreClientController {
 	{
 		ModelAndView model = new ModelAndView("updatedOrder");
 		updatedOrder.setoId(orderId);
-		sc.updateOrderStatus(orderId, updatedOrder);
+		sc.updateOrder(orderId, updatedOrder);
 		model.addObject(updatedOrder);
 		return model;
 	}
@@ -77,6 +78,15 @@ public class StoreClientController {
 	{
 		ModelAndView model = new ModelAndView("orderDeleted");
 		sc.deleteOrder(orderId);
+		return model;
+	}
+	
+	@GetMapping("/usersOrders/{userId}")
+	public ModelAndView getOrdersByUserId(@PathVariable int userId)
+	{
+		ModelAndView model = new ModelAndView("allOrders");
+		model.addObject("orders", sc.getOrderByUserId(userId));
+		
 		return model;
 	}
 }

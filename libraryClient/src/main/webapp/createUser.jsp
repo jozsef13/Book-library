@@ -14,6 +14,7 @@ Password:     <input type="password" name="password"><br>
 Last name:    <input type="text" name="userLastName"><br>
 First name:   <input type="text" name="userFirstName"><br>
 Phone number: <input type="text" name="userPhoneNumber"><br>
+Email address: <input type="text" name="userEmailAddress"><br>
 <input type="submit" value = "Create account"><br>
 </form>
 

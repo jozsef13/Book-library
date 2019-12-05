@@ -11,8 +11,7 @@
 ${user}
 <br>
 <a href="/books/allBooks"><button type="button"> Books inventory </button></a>
-<a href="/store/allOrders"><button type="button">See all orders</button></a>
-<a href="/searchOrder.jsp"><button type="button">Search your order by ID</button></a>
+<a href="/store/usersOrders/${sessionScope.userId}"><button type="button">See your orders</button></a>
 <a href="/users/logout"><button type="button">Logout</button></a>
 <a href="/users/deleteUser/${sessionScope.userId}"><button type="button">Delete account</button></a>
 </body>

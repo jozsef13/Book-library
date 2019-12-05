@@ -3,13 +3,24 @@ package com.library.libraryService.modules;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description = "Details about an order")
 public class OrderClass {
 
+	@ApiModelProperty(notes = "The unique ID")
 	private int oId;
+	@ApiModelProperty(notes = "The ID of the book ordered")
 	private int oBookId;
+	@ApiModelProperty(notes = "How many copies of the book was ordered")
 	private int oQuantity;
+	@ApiModelProperty(notes = "The ship date")
 	private String oShipDate = dateTime();
+	@ApiModelProperty(notes = "Status of the order which can be Placed, Approved or Delivered")
 	private OrderStatus oStatus = OrderStatus.Placed;
+	@ApiModelProperty(notes = "The ID of the user that placed the order")
+	private int oUserId;
 	
 	private String dateTime() {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -58,10 +69,18 @@ public class OrderClass {
 		this.oStatus = oStatus;
 	}
 
+	public int getoUserId() {
+		return oUserId;
+	}
+
+	public void setoUserId(int oUserId) {
+		this.oUserId = oUserId;
+	}
+
 	@Override
 	public String toString() {
 		return "OrderClass [oId=" + oId + ", oBookId=" + oBookId + ", oQuantity=" + oQuantity + ", oShipDate="
-				+ oShipDate + ", oStatus=" + oStatus + "]";
+				+ oShipDate + ", oStatus=" + oStatus + ", oUserId=" + oUserId + "]";
 	}
 
 }

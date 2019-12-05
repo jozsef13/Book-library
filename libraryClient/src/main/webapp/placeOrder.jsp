@@ -10,7 +10,7 @@
 
 ${book}
 
-<form action="/store/order/bookId=${sessionScope.bookId}" method="POST">
+<form action="/store/order/bookId=${sessionScope.bookId}&userId=${sessionScope.userId}" method="POST">
 Quantity: <input type="text" name="oQuantity"><br>
 <input type="submit" value = "Place order"><br>
 </form>

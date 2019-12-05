@@ -22,6 +22,7 @@ public class UserService {
 		user.setUserFirstName("Gabriel");
 		user.setUserLastName("Simon");
 		user.setUserPhoneNumber("0745666777");
+		user.setUserEmailAddress("gabriel.simon980@gmail.com");
 		users.put(key, user);
 		key++;
 		
@@ -32,6 +33,7 @@ public class UserService {
 		user.setUserFirstName("Cosmin");
 		user.setUserLastName("Popescu");
 		user.setUserPhoneNumber("0754777666");
+		user.setUserEmailAddress("gabriel.simon.ps4@gmail.com");
 		users.put(key, user);
 		key++;
 	}

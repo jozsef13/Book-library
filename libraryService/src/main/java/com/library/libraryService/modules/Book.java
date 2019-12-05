@@ -17,8 +17,6 @@ public class Book {
 	private String bookReleaseDate;
 	@ApiModelProperty(notes = "The books category")
 	private String bookCategory;
-	@ApiModelProperty(notes = "Number of copies of this book")
-	private int bookNrOfCopies;
 	@ApiModelProperty(notes = "The books price")
 	private int bookPrice;
 	public int getBookId() {
@@ -51,12 +49,7 @@ public class Book {
 	public void setBookCategory(String bookCategory) {
 		this.bookCategory = bookCategory;
 	}
-	public int getBookNrOfCopies() {
-		return bookNrOfCopies;
-	}
-	public void setBookNrOfCopies(int bookNrOfCopies) {
-		this.bookNrOfCopies = bookNrOfCopies;
-	}
+
 	public int getBookPrice() {
 		return bookPrice;
 	}
@@ -66,8 +59,7 @@ public class Book {
 	@Override
 	public String toString() {
 		return "Book [bookId=" + bookId + ", bookName=" + bookName + ", bookAuthor=" + bookAuthor + ", bookReleaseDate="
-				+ bookReleaseDate + ", bookCategory=" + bookCategory + ", bookNrOfCopies=" + bookNrOfCopies
-				+ ", bookPrice=" + bookPrice + "]";
+				+ bookReleaseDate + ", bookCategory=" + bookCategory + ", bookPrice=" + bookPrice + "]";
 	}
 
 }

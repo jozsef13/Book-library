@@ -2,6 +2,7 @@ package com.library.libraryClient.clients;
 
 import java.util.Collection;
 import java.util.Hashtable;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -56,7 +57,7 @@ public class StoreClient {
 		return ordersList;
 	}
 
-	public void updateOrderStatus(int orderId, OrderClass updatedOrder) {
+	public void updateOrder(int orderId, OrderClass updatedOrder) {
 		final String uri = url + "store/order/" + orderId + "/update";
 		
 		restOperations.put(uri, updatedOrder); 
@@ -67,4 +68,13 @@ public class StoreClient {
 		
 		restOperations.delete(uri);
 	}	
+	
+	public List<OrderClass> getOrderByUserId(int userId)
+	{
+		final String uri = url + "store/usersOrders/" + userId;
+		
+		List<OrderClass> orders = restOperations.getForObject(uri, List.class);
+		
+		return orders;
+	}
 }

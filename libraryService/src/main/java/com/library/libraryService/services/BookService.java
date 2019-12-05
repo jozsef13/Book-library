@@ -27,7 +27,6 @@ public class BookService {
 		b.setBookName("ScHoOl");
 		b.setBookAuthor(a);
 		b.setBookCategory("Horror");
-		b.setBookNrOfCopies(100);
 		b.setBookPrice(10);
 		b.setBookReleaseDate("12/12/2012");
 		books.put(key, b);
@@ -43,7 +42,6 @@ public class BookService {
 		b.setBookName("Ai n-ai mingea");
 		b.setBookAuthor(a);
 		b.setBookCategory("Sport");
-		b.setBookNrOfCopies(1000);
 		b.setBookPrice(50);
 		b.setBookReleaseDate("05/10/2019");
 		books.put(key, b);

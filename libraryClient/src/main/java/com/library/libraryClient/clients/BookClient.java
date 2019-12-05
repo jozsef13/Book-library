@@ -2,6 +2,7 @@ package com.library.libraryClient.clients;
 
 import java.util.Collection;
 import java.util.Hashtable;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestOperations;
 
 import com.library.libraryService.modules.Book;
+import com.library.libraryService.modules.OrderClass;
 
 @Component
 public class BookClient {
@@ -47,21 +49,19 @@ public class BookClient {
 		restOperations.postForObject(uri, newBook, Book.class);
 	}
 
-	public Collection<Book> getBookByAuthorId(int authorId) {
+	public List<Book> getBookByAuthorId(int authorId) {
 		final String uri = url + "books/author/" + authorId;
 		
-		Hashtable<Integer, Book> books = restOperations.getForObject(uri, Hashtable.class);
-		Collection<Book> booksList = books.values();
+		List<Book> books = restOperations.getForObject(uri, List.class);
 		
-		return booksList;
+		return books;
 	}
 
-	public Collection<Book> getBookByCategory(String category) {
+	public List<Book> getBookByCategory(String category) {
 		final String uri = url + "books/category/" + category;
 		
-		Hashtable<Integer, Book> books = restOperations.getForObject(uri, Hashtable.class);
-		Collection<Book> booksList = books.values();
+		List<Book> books = restOperations.getForObject(uri, List.class);
 		
-		return booksList;
+		return books;
 	}
 }
