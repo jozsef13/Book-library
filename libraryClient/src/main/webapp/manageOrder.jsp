@@ -9,7 +9,11 @@
 </head>
 <body>
 
-${orderById}
+Order ID = ${orderById.oId}<br>
+Book ID = ${orderById.oBookId}<br>
+Quantity = ${orderById.oQuantity}<br>
+Ship date = ${orderById.oShipDate}<br>
+Status = ${orderById.oStatus}<br>
 
 <br>
 <a href="/updateOrder.jsp"><button type="button">Update Order</button></a>

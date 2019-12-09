@@ -46,4 +46,9 @@ public class UserClient {
 		final String uri = url + "users/DeleteUser/" + userId;
 		restOperations.delete(uri);
 	}
+
+	public void updateUser(int userId, User updatedUser) {
+		final String uri = url + "user/UpdateUser/" + userId;
+		restOperations.put(uri, updatedUser);
+	}
 }

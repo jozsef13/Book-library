@@ -8,7 +8,12 @@
 </head>
 <body>
 
-${book}
+Book ID = ${book.bookId}<br>
+Name = ${book.bookName}<br>
+Author = ${book.bookAuthor.authorFirstName} ${book.bookAuthor.authorLastName}<br>
+Release year = ${book.bookReleaseYear}<br>
+Category = ${book.bookCategory}<br>
+Price = ${book.bookPrice}<br>
 
 <form action="/store/order/bookId=${sessionScope.bookId}&userId=${sessionScope.userId}" method="POST">
 Quantity: <input type="text" name="oQuantity"><br>

@@ -27,8 +27,8 @@ public class BookService {
 		b.setBookName("ScHoOl");
 		b.setBookAuthor(a);
 		b.setBookCategory("Horror");
-		b.setBookPrice(10);
-		b.setBookReleaseDate("12/12/2012");
+		b.setBookPrice(10.99);
+		b.setBookReleaseYear("2012");
 		books.put(key, b);
 		key++;
 		
@@ -42,8 +42,68 @@ public class BookService {
 		b.setBookName("Ai n-ai mingea");
 		b.setBookAuthor(a);
 		b.setBookCategory("Sport");
-		b.setBookPrice(50);
-		b.setBookReleaseDate("05/10/2019");
+		b.setBookPrice(49.50);
+		b.setBookReleaseYear("2019");
+		books.put(key, b);
+		key++;
+		
+		a = new Author();
+		a.setAuthorId(3);
+		a.setAuthorFirstName("Stephen");
+		a.setAuthorLastName("King");
+		
+		b = new Book();
+		b.setBookId(key);
+		b.setBookName("The mist");
+		b.setBookAuthor(a);
+		b.setBookCategory("Horror");
+		b.setBookPrice(54.95);
+		b.setBookReleaseYear("1980");
+		books.put(key, b);
+		key++;
+		
+		b = new Book();
+		b.setBookId(key);
+		b.setBookName("IT");
+		b.setBookAuthor(a);
+		b.setBookCategory("Horror");
+		b.setBookPrice(80);
+		b.setBookReleaseYear("1986");
+		books.put(key, b);
+		key++;
+		
+		a = new Author();
+		a.setAuthorId(4);
+		a.setAuthorFirstName("Dan");
+		a.setAuthorLastName("Brown");
+		
+		b = new Book();
+		b.setBookId(key);
+		b.setBookName("Inferno");
+		b.setBookAuthor(a);
+		b.setBookCategory("Mystery");
+		b.setBookPrice(79.99);
+		b.setBookReleaseYear("2013");
+		books.put(key, b);
+		key++;
+		
+		b = new Book();
+		b.setBookId(key);
+		b.setBookName("Origin");
+		b.setBookAuthor(a);
+		b.setBookCategory("Mystery");
+		b.setBookPrice(89.99);
+		b.setBookReleaseYear("2017");
+		books.put(key, b);
+		key++;
+		
+		b = new Book();
+		b.setBookId(key);
+		b.setBookName("The Da Vinci Code");
+		b.setBookAuthor(a);
+		b.setBookCategory("Mystery");
+		b.setBookPrice(49.99);
+		b.setBookReleaseYear("2003");
 		books.put(key, b);
 		key++;
 	}

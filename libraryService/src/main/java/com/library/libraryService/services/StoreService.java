@@ -37,6 +37,16 @@ public class StoreService {
 		order.setoUserId(2);
 		orders.put(key, order);
 		key++;
+		
+		order = new OrderClass();
+		order.setoId(key);
+		order.setoBookId(5);
+		order.setoQuantity(1);
+		order.setoShipDate("02/12/2019");
+		order.setoStatus(OrderStatus.Delivered);
+		order.setoUserId(1);
+		orders.put(key, order);
+		key++;
 	}
 
 	public void placeOrder(OrderClass order) {

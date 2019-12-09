@@ -33,7 +33,7 @@ public class UserService {
 		user.setUserFirstName("Cosmin");
 		user.setUserLastName("Popescu");
 		user.setUserPhoneNumber("0754777666");
-		user.setUserEmailAddress("gabriel.simon.ps4@gmail.com");
+		user.setUserEmailAddress("cosmin.popescu07@gmail.com");
 		users.put(key, user);
 		key++;
 	}

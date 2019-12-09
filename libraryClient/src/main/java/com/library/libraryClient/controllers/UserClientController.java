@@ -76,4 +76,14 @@ public class UserClientController {
 		uc.deleteUser(userId);
 		return model;
 	}
+	
+	@RequestMapping(value = "/updateUser/{userId}")
+	public ModelAndView updateUser(@PathVariable int userId, User updatedUser)
+	{
+		ModelAndView model = new ModelAndView("updatedUser");
+		updatedUser.setUserId(userId);
+		uc.updateUser(userId, updatedUser);
+		model.addObject(updatedUser);
+		return model;
+	}
 }

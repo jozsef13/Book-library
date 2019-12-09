@@ -9,10 +9,23 @@
 </head>
 <body>
 
-<table>
+<table style="width:100%">
+	<tr>
+		<th>Book ID</th>
+		<th>Name</th>
+		<th>Author</th>
+		<th>Price</th>
+		<th>Release year</th>
+		<th>Category</th>
+	</tr>
 	<c:forEach items = "${books}" var = "book">
 		<tr>
-			<td><a href="/books/id/${book.bookId} " ><c:out value="${book}" /></a></td>
+			<td align="center"><c:out value="${book.bookId}" /></td>
+			<td align="center"><a href="/books/id/${book.bookId} " ><c:out value="${book.bookName}" /></a></td>
+			<td align="center"><c:out value="${book.bookAuthor.authorFirstName} ${book.bookAuthor.authorLastName}" /></td>
+			<td align="center"><c:out value="${book.bookPrice}" /></td>
+			<td align="center"><c:out value="${book.bookReleaseYear}" /></td>
+			<td align="center"><c:out value="${book.bookCategory}" /></td>
 		</tr>
 	</c:forEach>
 </table>

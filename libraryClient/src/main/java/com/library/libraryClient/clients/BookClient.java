@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestOperations;
 
 import com.library.libraryService.modules.Book;
-import com.library.libraryService.modules.OrderClass;
 
 @Component
 public class BookClient {
