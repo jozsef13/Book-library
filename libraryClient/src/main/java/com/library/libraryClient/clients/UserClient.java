@@ -48,7 +48,7 @@ public class UserClient {
 	}
 
 	public void updateUser(int userId, User updatedUser) {
-		final String uri = url + "user/UpdateUser/" + userId;
+		final String uri = url + "users/UpdateUser/" + userId;
 		restOperations.put(uri, updatedUser);
 	}
 }

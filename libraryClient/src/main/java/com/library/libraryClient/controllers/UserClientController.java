@@ -84,6 +84,7 @@ public class UserClientController {
 		updatedUser.setUserId(userId);
 		uc.updateUser(userId, updatedUser);
 		model.addObject(updatedUser);
+		
 		return model;
 	}
 }

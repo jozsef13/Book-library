@@ -63,10 +63,12 @@ public class StoreClientController {
 	}
 	
 	@PostMapping("/order/update/{orderId}")
-	public ModelAndView updateOrderStatus(OrderClass updatedOrder, @PathVariable int orderId)
+	public ModelAndView updateOrderStatus(OrderClass updatedOrder, @PathVariable int orderId, HttpSession session)
 	{
 		ModelAndView model = new ModelAndView("updatedOrder");
 		updatedOrder.setoId(orderId);
+		int userId = (int) session.getAttribute("userId");
+		updatedOrder.setoUserId(userId);
 		sc.updateOrder(orderId, updatedOrder);
 		model.addObject(updatedOrder);
 		return model;
