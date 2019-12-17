@@ -11,7 +11,7 @@
 ID = ${user.userId} <br>
 Username = ${user.username} <br>
 Last name = ${user.userLastName} <br>
-First name = ${user.userFirstName} <br
+First name = ${user.userFirstName} <br>
 Phone number = ${user.userPhoneNumber} <br>
 Email address = ${user.userEmailAddress} <br>
 
