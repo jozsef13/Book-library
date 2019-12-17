@@ -21,7 +21,7 @@ public class OrderClass {
 	private OrderStatus oStatus = OrderStatus.Placed;
 	@ApiModelProperty(notes = "The ID of the user that placed the order")
 	private int oUserId;
-	
+
 	private String dateTime() {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate local = LocalDate.now();

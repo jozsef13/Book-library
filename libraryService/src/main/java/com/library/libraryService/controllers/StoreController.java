@@ -25,61 +25,54 @@ import io.swagger.annotations.ApiParam;
 @RequestMapping(StoreController.CONTRACT_BASE_URL)
 @ApiModel(description = "Acces to library orders")
 public class StoreController {
-	
+
 	@Autowired
 	private StoreService storeService;
 	public static final String CONTRACT_BASE_URL = "/store";
-	
+
 	@PostMapping("/order")
 	@ApiOperation(value = "Place an order", response = OrderClass.class)
-	private OrderClass placeOrder(@ApiParam(value = "Order object to be added")@RequestBody OrderClass order)
-	{
+	private OrderClass placeOrder(@ApiParam(value = "Order object to be added") @RequestBody OrderClass order) {
 		storeService.placeOrder(order);
 		return order;
 	}
-	
+
 	@DeleteMapping("/DeleteOrder/{orderId}")
 	@ApiOperation(value = "Delete an order", response = OrderClass.class)
-	private String deleteOrderById(@ApiParam(value = "ID of the order to be deleted") @PathVariable int orderId)
-	{
+	private String deleteOrderById(@ApiParam(value = "ID of the order to be deleted") @PathVariable int orderId) {
 		storeService.delete(orderId);
-		
+
 		return "Order deleted successfully";
 	}
-	
+
 	@GetMapping("/order/{orderId}")
 	@ApiOperation(value = "Finds an order by its id", response = OrderClass.class)
-	private OrderClass getOrderById(@ApiParam(value = "ID of the order to be returned") @PathVariable int orderId)
-	{
+	private OrderClass getOrderById(@ApiParam(value = "ID of the order to be returned") @PathVariable int orderId) {
 		return storeService.findById(orderId);
 	}
-	
+
 	@GetMapping("/allOrders")
 	@ApiOperation(value = "Find all orders", response = OrderClass.class)
-	private Hashtable<Integer, OrderClass> getAllOrders()
-	{
+	private Hashtable<Integer, OrderClass> getAllOrders() {
 		return storeService.findAll();
 	}
-	
+
 	@GetMapping("/order/findByStatus/{status}")
 	@ApiOperation(value = "Find orders by their status", response = OrderClass.class)
-	private List<OrderClass> getOrdersByStatus(@ApiParam(value = "Status values for finding the orders") @PathVariable OrderStatus status)
-	{
+	private List<OrderClass> getOrdersByStatus(@ApiParam(value = "Status values for finding the orders") @PathVariable OrderStatus status) {
 		return storeService.findByOStatus(status);
 	}
-	
+
 	@PutMapping("/order/{orderId}/update")
 	@ApiOperation(value = "Update orders", response = OrderClass.class)
-	private String updateOrder(@ApiParam(value = "The ID of the order that will be updated") @PathVariable int orderId,@ApiParam("The updated order")@RequestBody OrderClass updatedOrder)
-	{
+	private String updateOrder(@ApiParam(value = "The ID of the order that will be updated") @PathVariable int orderId, @ApiParam("The updated order") @RequestBody OrderClass updatedOrder) {
 		return storeService.updateOrder(orderId, updatedOrder);
 	}
-	
+
 	@GetMapping("/usersOrders/{userId}")
 	@ApiOperation(value = "Find orders by the users that placed the order")
-	private List<OrderClass> getOrderByUserId(@ApiParam(value = "The ID of the user that placed the orders") @PathVariable int userId)
-	{
+	private List<OrderClass> getOrderByUserId(@ApiParam(value = "The ID of the user that placed the orders") @PathVariable int userId) {
 		return storeService.findByUserId(userId);
 	}
-	
+
 }

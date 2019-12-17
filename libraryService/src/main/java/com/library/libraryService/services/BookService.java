@@ -19,39 +19,39 @@ public class BookService {
 	public BookService() {
 		Author a = new Author();
 		a.setAuthorId(1);
-		a.setAuthorFirstName("Gabriel");
-		a.setAuthorLastName("Simon");
-		
+		a.setAuthorFirstName("Paulo");
+		a.setAuthorLastName("Coelho");
+
 		Book b = new Book();
 		b.setBookId(key);
-		b.setBookName("ScHoOl");
+		b.setBookName("The Alchemist");
 		b.setBookAuthor(a);
-		b.setBookCategory("Horror");
-		b.setBookPrice(10.99);
-		b.setBookReleaseYear("2012");
+		b.setBookCategory("Adventure");
+		b.setBookPrice(21.99);
+		b.setBookReleaseYear("1988");
 		books.put(key, b);
 		key++;
-		
+
 		a = new Author();
 		a.setAuthorId(2);
-		a.setAuthorFirstName("Gica");
-		a.setAuthorLastName("Hagi");
-		
+		a.setAuthorFirstName("Marin");
+		a.setAuthorLastName("Preda");
+
 		b = new Book();
 		b.setBookId(key);
-		b.setBookName("Ai n-ai mingea");
+		b.setBookName("Morometii");
 		b.setBookAuthor(a);
-		b.setBookCategory("Sport");
-		b.setBookPrice(49.50);
-		b.setBookReleaseYear("2019");
+		b.setBookCategory("Family");
+		b.setBookPrice(39.99);
+		b.setBookReleaseYear("1955");
 		books.put(key, b);
 		key++;
-		
+
 		a = new Author();
 		a.setAuthorId(3);
 		a.setAuthorFirstName("Stephen");
 		a.setAuthorLastName("King");
-		
+
 		b = new Book();
 		b.setBookId(key);
 		b.setBookName("The mist");
@@ -61,7 +61,7 @@ public class BookService {
 		b.setBookReleaseYear("1980");
 		books.put(key, b);
 		key++;
-		
+
 		b = new Book();
 		b.setBookId(key);
 		b.setBookName("IT");
@@ -71,12 +71,12 @@ public class BookService {
 		b.setBookReleaseYear("1986");
 		books.put(key, b);
 		key++;
-		
+
 		a = new Author();
 		a.setAuthorId(4);
 		a.setAuthorFirstName("Dan");
 		a.setAuthorLastName("Brown");
-		
+
 		b = new Book();
 		b.setBookId(key);
 		b.setBookName("Inferno");
@@ -86,7 +86,7 @@ public class BookService {
 		b.setBookReleaseYear("2013");
 		books.put(key, b);
 		key++;
-		
+
 		b = new Book();
 		b.setBookId(key);
 		b.setBookName("Origin");
@@ -96,7 +96,7 @@ public class BookService {
 		b.setBookReleaseYear("2017");
 		books.put(key, b);
 		key++;
-		
+
 		b = new Book();
 		b.setBookId(key);
 		b.setBookName("The Da Vinci Code");
@@ -110,33 +110,33 @@ public class BookService {
 
 	public void add(Book book) {
 		book.setBookId(key);
-		books.put(key , book);
+		books.put(key, book);
 		key++;
 	}
 
 	public Book findById(int bookId) {
-		if(books.containsKey(bookId)){
+		if (books.containsKey(bookId)) {
 			return books.get(bookId);
 		}
-		
+
 		return null;
 	}
 
 	public List<Book> findByBookAuthor(int authorId) {
-		
+
 		List<Book> returningBooks = new ArrayList<>();
 		Collection<Book> bookValues = books.values();
-		
+
 		for (Book book : bookValues) {
-			if(book.getBookAuthor().getAuthorId() == authorId){
+			if (book.getBookAuthor().getAuthorId() == authorId) {
 				returningBooks.add(books.get(book.getBookId()));
 			}
 		}
-		
-		if(returningBooks.isEmpty()){
+
+		if (returningBooks.isEmpty()) {
 			return null;
 		}
-		
+
 		return returningBooks;
 	}
 
@@ -144,18 +144,18 @@ public class BookService {
 
 		List<Book> returningBooks = new ArrayList<>();
 		Collection<Book> bookValues = books.values();
-			
+
 		for (Book book : bookValues) {
-			if(book.getBookCategory().equals(bookCategory)){
+			if (book.getBookCategory().equals(bookCategory)) {
 				returningBooks.add(books.get(book.getBookId()));
 			}
 		}
-		
-		if(returningBooks.isEmpty()){
+
+		if (returningBooks.isEmpty()) {
 			return null;
 		}
-		
-		return returningBooks;	
+
+		return returningBooks;
 	}
 
 	public Hashtable<Integer, Book> findAll() {

@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({"com.library.libraryClient.clients", "com.library.libraryClient.controllers", "com.library.libraryClient.config"})
+@ComponentScan({ "com.library.libraryClient.clients", "com.library.libraryClient.controllers", "com.library.libraryClient.config" })
 public class ApplicationClient {
 
 	public static void main(String[] args) {

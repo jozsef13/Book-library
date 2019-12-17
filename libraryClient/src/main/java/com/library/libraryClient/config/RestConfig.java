@@ -10,21 +10,19 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 public class RestConfig {
-	
+
 	@Bean
-	public RestOperations createRestTemplate(final ClientHttpRequestFactory clientHttpRequestFactory)
-	{
+	public RestOperations createRestTemplate(final ClientHttpRequestFactory clientHttpRequestFactory) {
 		return new RestTemplate(clientHttpRequestFactory);
 	}
 
 	@Bean
-	public ClientHttpRequestFactory createClientHttpRequestFactory(@Value("${connect.timeout}") final int connectTimeout, @Value("${read.timeout}") final int readTimeout)
-	{
+	public ClientHttpRequestFactory createClientHttpRequestFactory(@Value("${connect.timeout}") final int connectTimeout, @Value("${read.timeout}") final int readTimeout) {
 		HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory = new HttpComponentsClientHttpRequestFactory();
-		
+
 		httpComponentsClientHttpRequestFactory.setReadTimeout(readTimeout);
 		httpComponentsClientHttpRequestFactory.setConnectTimeout(connectTimeout);
-		
+
 		return httpComponentsClientHttpRequestFactory;
 	}
 }

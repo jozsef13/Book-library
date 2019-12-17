@@ -12,12 +12,12 @@ import com.library.libraryService.modules.OrderStatus;
 
 @Service
 public class StoreService {
-	
+
 	private Hashtable<Integer, OrderClass> orders = new Hashtable<Integer, OrderClass>();
 	private Integer key = 1;
-	
+
 	public StoreService() {
-		
+
 		OrderClass order = new OrderClass();
 		order.setoId(key);
 		order.setoBookId(2);
@@ -27,7 +27,7 @@ public class StoreService {
 		order.setoUserId(1);
 		orders.put(key, order);
 		key++;
-		
+
 		order = new OrderClass();
 		order.setoId(key);
 		order.setoBookId(1);
@@ -37,7 +37,7 @@ public class StoreService {
 		order.setoUserId(2);
 		orders.put(key, order);
 		key++;
-		
+
 		order = new OrderClass();
 		order.setoId(key);
 		order.setoBookId(5);
@@ -60,10 +60,10 @@ public class StoreService {
 	}
 
 	public OrderClass findById(int orderId) {
-		if(orders.containsKey(orderId)){
+		if (orders.containsKey(orderId)) {
 			return orders.get(orderId);
 		}
-		
+
 		return null;
 	}
 
@@ -75,42 +75,41 @@ public class StoreService {
 
 		List<OrderClass> returningOrders = new ArrayList<>();
 		Collection<OrderClass> orderValue = orders.values();
-			
+
 		for (OrderClass order : orderValue) {
-			if(order.getoStatus().equals(status)){
+			if (order.getoStatus().equals(status)) {
 				returningOrders.add(orders.get(order.getoId()));
 			}
 		}
 
-		if(returningOrders.isEmpty()){
+		if (returningOrders.isEmpty()) {
 			return null;
 		}
-		
+
 		return returningOrders;
-	
+
 	}
 
 	public String updateOrder(int orderId, OrderClass updatedOrder) {
 		orders.put(orderId, updatedOrder);
-		
+
 		return "Updated successfully!";
 	}
-	
-	public List<OrderClass> findByUserId(int userId)
-	{
+
+	public List<OrderClass> findByUserId(int userId) {
 		List<OrderClass> returningOrders = new ArrayList<>();
 		Collection<OrderClass> orderValue = orders.values();
-		
+
 		for (OrderClass order : orderValue) {
-			if(order.getoUserId() == userId){
+			if (order.getoUserId() == userId) {
 				returningOrders.add(orders.get(order.getoId()));
 			}
 		}
-		
-		if(returningOrders.isEmpty()){
+
+		if (returningOrders.isEmpty()) {
 			return null;
 		}
-		
+
 		return returningOrders;
 	}
 }

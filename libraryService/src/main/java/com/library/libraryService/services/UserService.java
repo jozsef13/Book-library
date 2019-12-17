@@ -12,10 +12,10 @@ public class UserService {
 
 	private Hashtable<Integer, User> users = new Hashtable<Integer, User>();
 	private Integer key = 1;
-	
+
 	public UserService() {
 		User user = new User();
-		
+
 		user.setUserId(key);
 		user.setUsername("jozsef13");
 		user.setPassword("gabriel");
@@ -25,7 +25,7 @@ public class UserService {
 		user.setUserEmailAddress("gabriel.simon980@gmail.com");
 		users.put(key, user);
 		key++;
-		
+
 		user = new User();
 		user.setUserId(key);
 		user.setUsername("comin7");
@@ -45,42 +45,42 @@ public class UserService {
 	}
 
 	public User findByUsernameAndPassword(String username, String password) {
-		
+
 		Collection<User> userValues = users.values();
-			
+
 		for (User user : userValues) {
-			if(user.getUsername().equals(username) && user.getPassword().equals(password)){
-				return  users.get(user.getUserId());
+			if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+				return users.get(user.getUserId());
 			}
-		}	
-		
+		}
+
 		return null;
 	}
 
 	public User findById(int userId) {
-		if(users.containsKey(userId)){
+		if (users.containsKey(userId)) {
 			return users.get(userId);
 		}
-		
+
 		return null;
 	}
 
 	public User findByUsername(String username) {
 		Collection<User> userValues = users.values();
-		
+
 		for (User user : userValues) {
-			if(user.getUsername().equals(username)){
+			if (user.getUsername().equals(username)) {
 				return users.get(user.getUserId());
 			}
 		}
-		
+
 		return null;
 	}
 
 	public void update(User otherUser, int userId) {
 
 		users.replace(userId, otherUser);
-		
+
 	}
 
 	public void delete(User user) {

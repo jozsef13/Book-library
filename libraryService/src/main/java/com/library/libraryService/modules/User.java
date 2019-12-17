@@ -20,7 +20,7 @@ public class User {
 	private String password;
 	@ApiModelProperty(notes = "Users email address")
 	private String userEmailAddress;
-	
+
 	public String getPassword() {
 		return password;
 	}
@@ -32,39 +32,39 @@ public class User {
 	public int getUserId() {
 		return userId;
 	}
-	
+
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	
+
 	public String getUsername() {
 		return username;
 	}
-	
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
+
 	public String getUserLastName() {
 		return userLastName;
 	}
-	
+
 	public void setUserLastName(String userLastName) {
 		this.userLastName = userLastName;
 	}
-	
+
 	public String getUserFirstName() {
 		return userFirstName;
 	}
-	
+
 	public void setUserFirstName(String userFirstName) {
 		this.userFirstName = userFirstName;
 	}
-	
+
 	public String getUserPhoneNumber() {
 		return userPhoneNumber;
 	}
-	
+
 	public void setUserPhoneNumber(String userPhoneNumber) {
 		this.userPhoneNumber = userPhoneNumber;
 	}
@@ -83,5 +83,5 @@ public class User {
 				+ ", userFirstName=" + userFirstName + ", userPhoneNumber=" + userPhoneNumber + ", password=" + password
 				+ ", userEmailAddress=" + userEmailAddress + "]";
 	}
-	
+
 }

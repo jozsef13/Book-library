@@ -17,64 +17,59 @@ public class StoreClient {
 	@Autowired
 	private RestOperations restOperations;
 	private String url;
-	
+
 	@Autowired
 	public StoreClient(@Value("${service.url}") String url) {
 		this.url = url;
 	}
-	
-	public OrderClass getOrderById(int orderId)
-	{
+
+	public OrderClass getOrderById(int orderId) {
 		final String uri = url + "store/order/" + orderId;
-	
+
 		return restOperations.getForObject(uri, OrderClass.class);
 	}
-	
-	public Collection<OrderClass> getAllOrders()
-	{
+
+	public Collection<OrderClass> getAllOrders() {
 		final String uri = url + "store/allOrders";
-		
+
 		Hashtable<Integer, OrderClass> orders = restOperations.getForObject(uri, Hashtable.class);
 		Collection<OrderClass> ordersList = orders.values();
-		
+
 		return ordersList;
 	}
-	
-	public OrderClass addOrder(OrderClass newOrder)
-	{
+
+	public OrderClass addOrder(OrderClass newOrder) {
 		final String uri = url + "store/order";
-		
+
 		return restOperations.postForObject(uri, newOrder, OrderClass.class);
 	}
-	
-	public Collection<OrderClass> getOrderByStatus(OrderStatus status)
-	{
+
+	public Collection<OrderClass> getOrderByStatus(OrderStatus status) {
 		final String uri = url + "store/order/findByStatus/" + status;
-		
+
 		Hashtable<Integer, OrderClass> orders = restOperations.getForObject(uri, Hashtable.class);
 		Collection<OrderClass> ordersList = orders.values();
-		
+
 		return ordersList;
 	}
 
 	public void updateOrder(int orderId, OrderClass updatedOrder) {
 		final String uri = url + "store/order/" + orderId + "/update";
-		
-		restOperations.put(uri, updatedOrder); 
+
+		restOperations.put(uri, updatedOrder);
 	}
 
 	public void deleteOrder(int orderId) {
 		final String uri = url + "store/DeleteOrder/" + orderId;
-		
+
 		restOperations.delete(uri);
-	}	
-	
-	public List<OrderClass> getOrderByUserId(int userId)
-	{
+	}
+
+	public List<OrderClass> getOrderByUserId(int userId) {
 		final String uri = url + "store/usersOrders/" + userId;
-		
+
 		List<OrderClass> orders = restOperations.getForObject(uri, List.class);
-		
+
 		return orders;
 	}
 }
