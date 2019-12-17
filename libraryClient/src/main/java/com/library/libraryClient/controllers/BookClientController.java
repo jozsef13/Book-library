@@ -26,7 +26,7 @@ public class BookClientController {
 
 	@GetMapping("/id/{bookId}")
 	public ModelAndView getBook(@PathVariable int bookId, HttpSession session) {
-		ModelAndView model = new ModelAndView("placeOrder");
+		ModelAndView model = new ModelAndView("addToBasket");
 		Book book = bc.getBook(bookId);
 		model.addObject(book);
 		session.setAttribute("bookId", bookId);

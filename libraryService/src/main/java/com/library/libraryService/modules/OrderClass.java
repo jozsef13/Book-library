@@ -2,6 +2,8 @@ package com.library.libraryService.modules;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.List;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -11,16 +13,16 @@ public class OrderClass {
 
 	@ApiModelProperty(notes = "The unique ID")
 	private int oId;
-	@ApiModelProperty(notes = "The ID of the book ordered")
-	private int oBookId;
-	@ApiModelProperty(notes = "How many copies of the book was ordered")
-	private int oQuantity;
+	@ApiModelProperty(notes = "The IDs of the books ordered")
+	private List<Integer> oBooksId;
 	@ApiModelProperty(notes = "The ship date")
 	private String oShipDate = dateTime();
 	@ApiModelProperty(notes = "Status of the order which can be Placed, Approved or Delivered")
-	private OrderStatus oStatus = OrderStatus.Placed;
+	private OrderStatus oStatus = OrderStatus.Approved;
 	@ApiModelProperty(notes = "The ID of the user that placed the order")
 	private int oUserId;
+	@ApiModelProperty(notes = "The total price of the order")
+	private double oTotalSum;
 
 	private String dateTime() {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -37,20 +39,20 @@ public class OrderClass {
 		this.oId = oId;
 	}
 
-	public int getoBookId() {
-		return oBookId;
+	public List<Integer> getoBooksId() {
+		return oBooksId;
 	}
 
-	public void setoBookId(int oBookId) {
-		this.oBookId = oBookId;
+	public void setoBooksId(List<Integer> oBooksId) {
+		this.oBooksId = oBooksId;
 	}
 
-	public int getoQuantity() {
-		return oQuantity;
+	public double getoTotalSum() {
+		return oTotalSum;
 	}
 
-	public void setoQuantity(int oQuantity) {
-		this.oQuantity = oQuantity;
+	public void setoTotalSum(double oTotalSum) {
+		this.oTotalSum = oTotalSum;
 	}
 
 	public String getoShipDate() {
@@ -79,8 +81,8 @@ public class OrderClass {
 
 	@Override
 	public String toString() {
-		return "OrderClass [oId=" + oId + ", oBookId=" + oBookId + ", oQuantity=" + oQuantity + ", oShipDate="
-				+ oShipDate + ", oStatus=" + oStatus + ", oUserId=" + oUserId + "]";
+		return "OrderClass [oId=" + oId + ", oBooksId=" + oBooksId + ", oShipDate=" + oShipDate + ", oStatus=" + oStatus
+				+ ", oUserId=" + oUserId + ", oTotalSum=" + oTotalSum + "]";
 	}
 
 }

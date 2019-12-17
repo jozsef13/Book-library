@@ -4,18 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Update order</title>
+<title>Place order</title>
 </head>
 <body>
 
-<form action="/store/order/update/${sessionScope.orderId}" method="post">
-Updated status: <select name="oStatus">
-    				<option value="Delivered">Delivered</option>
-  				</select><br>
-<input type="submit" value="Update"><br>
-</form>
-<br>
+Book ID = ${book.bookId}<br>
+Name = ${book.bookName}<br>
+Author = ${book.bookAuthor.authorFirstName} ${book.bookAuthor.authorLastName}<br>
+Release year = ${book.bookReleaseYear}<br>
+Category = ${book.bookCategory}<br>
+Price = ${book.bookPrice}<br>
+
+<a href="/store/order/addToBasket/${book.bookId}"><button type="button">Add to basket</button></a>
 <a href='' onclick = "this.href='/users/ID/' + ${sessionScope.userId}" ><button type="button">Return to your page</button></a>
+
 
 </body>
 </html>

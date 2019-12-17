@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestOperations;
+
+import com.library.libraryService.modules.Book;
 import com.library.libraryService.modules.OrderClass;
 import com.library.libraryService.modules.OrderStatus;
 
@@ -71,5 +73,19 @@ public class StoreClient {
 		List<OrderClass> orders = restOperations.getForObject(uri, List.class);
 
 		return orders;
+	}
+
+	public Book addToBasket(int bookId) {
+		final String uri = url + "store/order/addToBasket/" + bookId;
+
+		return restOperations.getForObject(uri, Book.class);
+	}
+
+	public List<Book> getBasket() {
+		final String uri = url + "store/order/basket";
+
+		List<Book> books = restOperations.getForObject(uri, List.class);
+
+		return books;
 	}
 }

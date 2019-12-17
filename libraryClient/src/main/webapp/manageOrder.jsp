@@ -10,8 +10,7 @@
 <body>
 
 Order ID = ${orderById.oId}<br>
-Book ID = ${orderById.oBookId}<br>
-Quantity = ${orderById.oQuantity}<br>
+Book ID = ${orderById.oBooksId}<br>
 Ship date = ${orderById.oShipDate}<br>
 Status = ${orderById.oStatus}<br>
 
