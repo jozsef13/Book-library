@@ -4,17 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Update order</title>
+<title>Insert title here</title>
 </head>
 <body>
 
-<form action="/store/order/update/${sessionScope.orderId}" method="post">
-Updated status: <select name="oStatus">
-    				<option value="Delivered">Delivered</option>
-  				</select><br>
-<input type="submit" value="Update"><br>
-</form>
-<br>
+Book added to the basket successfully!<br>
+
+<a href="/books/allBooks"><button type="button">Return to books inventory </button></a>
+<a href = "/store/order/basket"><button type = "button">Show basket</button></a>
 <a href='' onclick = "this.href='/users/ID/' + ${sessionScope.userId}" ><button type="button">Return to your page</button></a>
 
 </body>

@@ -9,12 +9,12 @@
 <body>
 
 <form action="/users/updateUser/${sessionScope.userId}" method="post">
-Username:     <input type="text" name="username"><br>
-Password:     <input type="password" name="password"><br>
-Last name:    <input type="text" name="userLastName"><br>
-First name:   <input type="text" name="userFirstName"><br>
-Phone number: <input type="text" name="userPhoneNumber"><br>
-Email address: <input type="text" name="userEmailAddress"><br>
+Username: <input type="text" name="username" value="${user.username}"><br>
+Password: <input type="password" name="password" value="${user.password}"><br>
+Last name: <input type="text" name="userLastName" value="${user.userLastName}"><br>
+First name: <input type="text" name="userFirstName" value="${user.userFirstName}"><br>
+Phone number: <input type="text" name="userPhoneNumber" value=" ${user.userPhoneNumber}"><br>
+Email address: <input type="text" name="userEmailAddress" value="${user.userEmailAddress}"><br>
 <input type="submit" value="Update"><br>
 </form>
 

@@ -12,18 +12,18 @@
 <table style="width:100%">
 	<tr>
 		<th>Order ID</th>
-		<th>Book</th>
-		<th>Quantity</th>
+		<th>Books</th>
 		<th>Ship date</th>
 		<th>Status</th>
+		<th>Total price</th>
 	</tr>
 	<c:forEach items = "${orders}" var = "order">
 		<tr>
 			<td align="center"><a href="/store/order/${order.oId} " ><c:out value="${order.oId}" /></a></td>
-			<td align="center"><a href="/books/id/${order.oBookId}"><c:out value="${order.oBookId}" /></a></td>
-			<td align="center"><c:out value="${order.oQuantity}" /></td>
+			<td align="center"><c:forEach items = "${order.oBooksId}" var = "bookId"> <a href="/books/id/${bookId}"><c:out value="${bookId}" /></a></c:forEach> </td>
 			<td align="center"><c:out value="${order.oShipDate}"/></td>
 			<td align="center"><c:out value="${order.oStatus}" /></td>
+			<td align="center"><c:out value="${order.oTotalSum}" /></td>
 		</tr>
 	</c:forEach>
 </table>

@@ -48,6 +48,7 @@ public class UserClientController {
 		model.addObject(user);
 
 		session.setAttribute("userId", user.getUserId());
+		session.setAttribute("user", user);
 
 		return model;
 	}
@@ -76,7 +77,6 @@ public class UserClientController {
 		ModelAndView model = new ModelAndView("updatedUser");
 		updatedUser.setUserId(userId);
 		uc.updateUser(userId, updatedUser);
-		model.addObject(updatedUser);
 
 		return model;
 	}
