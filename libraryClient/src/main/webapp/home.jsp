@@ -7,8 +7,9 @@
 <title>Home</title>
 </head>
 <body>
-
-<form action="/users/login" method="get">
+<h1>Login</h1>
+${SPRING_SECURITY_LAST_EXCEPTION.message}
+<form action="/userInfo.jsp" method="POST">
 Username: <input type="text" name="username"><br>
 Password: <input type="password" name="password"><br>
 <input type="submit" value = "Login"> OR <a href="/createUser.jsp"><button type="button"> Create account </button></a> <br>

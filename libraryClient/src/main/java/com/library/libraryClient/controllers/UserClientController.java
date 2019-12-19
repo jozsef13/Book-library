@@ -21,7 +21,7 @@ public class UserClientController {
 	@Autowired
 	private UserClient uc;
 	public static final String CONTRACT_BASE_URL = "/users";
-
+	
 	@PostMapping("/createUser")
 	public ModelAndView createUser(User newUser) {
 		ModelAndView model = new ModelAndView("home");
@@ -40,6 +40,7 @@ public class UserClientController {
 
 	@GetMapping("/login")
 	public ModelAndView loginUser(HttpSession session, HttpServletRequest request) {
+		session.setMaxInactiveInterval(10000);
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
